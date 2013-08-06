@@ -23,8 +23,12 @@ def run():
     # Make sure necessary directories exist
     if not os.path.exists('tracks'):
         os.makedirs('tracks')
+    if not os.path.exists('tracks/exp_f'):
+        os.makedirs('tracks/exp_f')
     if not os.path.exists('figures'):
         os.makedirs('figures')
+    if not os.path.exists('figures/exp_f'):
+        os.makedirs('figures/exp_f')
 
     # Parameters to be rotated through
     years = np.arange(2004,2012)
