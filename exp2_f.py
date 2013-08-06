@@ -40,13 +40,13 @@ def run():
             date = datetime(year, month, day, 1, 0)
 
             # number of days to run this simulation
-            ndays = timedelta(netCDF.date2num(date,units) 
-                            - netCDF.date2num(enddate,units)).days/(24*3600.)
+            ndays = timedelta(netCDF.date2num(enddate,units) 
+                            - netCDF.date2num(date,units)).days/(24*3600.)
 
             # Read in simulation initialization
             loc, nstep, ff, date, tseas, ah, av, lon0, lat0, z0, \
                     zpar, do3d, doturb, name, grid = init.params(date, grid=grid)
-            pdb.set_trace()
+
             # If the particle trajectories have not been run, run them
             if not os.path.exists('tracks/' + name + '.nc'):
                 lonp, latp, zp, t, grid = tracpy.run.run(loc, nstep, ndays, \
