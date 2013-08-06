@@ -5,9 +5,7 @@ import pdb
 import glob
 from datetime import datetime, timedelta
 from matplotlib.mlab import *
-import inout
-import tools
-
+import tracpy
 
 def params(date=None, grid=None, ndays=None):
     '''
@@ -37,7 +35,7 @@ def params(date=None, grid=None, ndays=None):
     if grid is None:
         # if loc is the aggregated thredds server, the grid info is
         # included in the same file
-        grid = inout.readgrid(loc)
+        grid = tracpy.inout.readgrid(loc)
     else:
         grid = grid
 
@@ -47,7 +45,7 @@ def params(date=None, grid=None, ndays=None):
     lat0 = d['lat0']
 
     # Eliminate points that are outside domain or in masked areas
-    lon0,lat0 = tools.check_points(lon0,lat0,grid)
+    lon0,lat0 = tracpy.tools.check_points(lon0,lat0,grid)
 
     # surface drifters
     z0 = 's'  
