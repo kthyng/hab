@@ -42,7 +42,7 @@ def params(date=None, grid=None, ndays=None):
         grid = grid
 
     # Initial lon/lat locations for drifters
-    d = np.load(loc + 'hab/data/exp1b/starting_locations.npz')
+    d = np.load('/pong/raid/kthyng/hab/data/exp2/starting_locations.npz')
     lon0 = d['lon0']
     lat0 = d['lat0']
 
