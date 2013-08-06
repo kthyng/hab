@@ -38,7 +38,8 @@ def run():
             date = datetime(year, month, day, 1, 0)
 
             # number of days to run this simulation
-            ndays = timedelta(date,enddate)
+            ndays = timedelta(netCDF.date2num(date,units) 
+                            - netCDF.date2num(enddate,units)).days/(24*3600.)
 
             # Read in simulation initialization
             loc, nstep, ff, date, tseas, ah, av, lon0, lat0, z0, \
@@ -56,9 +57,6 @@ def run():
                 d = netCDF.Dataset('tracks/' + name + '.nc')
                 lonp = d.variables['lonp'][:]
                 latp = d.variables['latp'][:]
-                T0 = d.variables['T0'][:]
-                U = d.variables['U'][:]
-                V = d.variables['V'][:]
                 tracpy.plotting.tracks(lonp, latp, name, grid=grid)
                 tracpy.plotting.hist(lonp, latp, name, grid=grid, which='hexbin')
 
