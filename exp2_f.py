@@ -46,7 +46,7 @@ def run():
             # Read in simulation initialization
             loc, nstep, ff, date, tseas, ah, av, lon0, lat0, z0, \
                     zpar, do3d, doturb, name, grid = init.params(date, grid=grid)
-
+            pdb.set_trace()
             # If the particle trajectories have not been run, run them
             if not os.path.exists('tracks/' + name + '.nc'):
                 lonp, latp, zp, t, grid = tracpy.run.run(loc, nstep, ndays, \
