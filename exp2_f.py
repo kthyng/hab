@@ -14,6 +14,8 @@ from datetime import datetime, timedelta
 import glob
 
 def run():
+    # Units for time conversion with netCDF.num2date and .date2num
+    units = 'seconds since 1970-01-01'
 
     # Location of TXLA model output
     loc = 'http://barataria.tamu.edu:8080/thredds/dodsC/NcML/txla_nesting6.nc'
